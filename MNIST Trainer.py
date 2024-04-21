@@ -1,12 +1,13 @@
-import numpy as np
 from Dense import dense
 from Network import network
 from Activations import activation_layer, tanh, tanh_prime, ReLU_prime, ReLU
 from Loss import mse, mse_prime
 from keras.datasets import mnist
 import keras.utils as np_utils
-from matplotlib import pyplot as plt
 import pickle
+
+
+#MNIST Trainer
 
 
 (x_train1, y_train1), (x_test1, y_test1) = mnist.load_data()
@@ -33,19 +34,16 @@ net.add(activation_layer(tanh, tanh_prime))
 
 
 net.use(mse, mse_prime)
-net.train(x_train[0:1000], y_train[0:1000], epochs=200, learning_rate=0.1)
+net.train(x_train[0:5000], y_train[0:5000], epochs=1000, learning_rate=0.1)
 
-with open("data.weights1", "wb") as file:
+with open("data.MNISTweights1", "wb") as file:
     pickle.dump(net.layers[0].weights, file)
-with open("data.weights2", "wb") as file:
+with open("data.MNISTweights2", "wb") as file:
     pickle.dump(net.layers[2].weights, file)
-with open("data.biases1", "wb") as file:
+with open("data.MNISTbiases1", "wb") as file:
     pickle.dump(net.layers[0].biases, file)
-with open("data.biases2", "wb") as file:
+with open("data.MNISTbiases2", "wb") as file:
     pickle.dump(net.layers[2].biases, file)
-
-
-#print(weights1, weights2, biases1, biases2)
 
 
 

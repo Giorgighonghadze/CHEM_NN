@@ -23,16 +23,14 @@ def tanh_prime(x):
     return 1 - np.tanh(x) ** 2
 
 def ReLU(x):
-    if x.any() <= 0:
+    if x.all() <= 0:
+
         return 0
     else:
         return x
 
 def ReLU_prime(x):
-    if x.any() <= 0:
+    if x.all() <= 0:
         return 0
     else:
         return 1
-
-def softmax():
-    pass
