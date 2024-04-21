@@ -1,5 +1,5 @@
 import numpy as np
-from Dense import dense
+from Layers import Dense
 from Network import network
 from Activations import activation_layer, tanh, tanh_prime
 import pickle
@@ -22,9 +22,9 @@ with open("data.XORbiases2", "rb") as file:
     biases2 = pickle.load(file)
 
 net = network()
-net.add(dense(2, 3,True, weights1, biases1))
+net.add(Dense(2, 3,True, weights1, biases1))
 net.add(activation_layer(tanh, tanh_prime))
-net.add(dense(3, 1,True, weights2, biases2))
+net.add(Dense(3, 1,True, weights2, biases2))
 net.add(activation_layer(tanh, tanh_prime))
 
 

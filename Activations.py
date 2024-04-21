@@ -1,5 +1,4 @@
 import numpy as np
-
 from Layers import layer
 
 class activation_layer(layer):
@@ -34,3 +33,15 @@ def ReLU_prime(x):
         return 0
     else:
         return 1
+
+class softmax(layer):
+    def forward(self, input):
+
+        tmp = np.exp(input)
+        self.output = tmp/np.sum(input)
+        return self.output
+    def backward(self, gradient, learning_rate):
+
+        n = np.size(self.output)
+        tmp = (np.identity(n) - self.output.T) * self.output
+        return tmp.dot(gradient)

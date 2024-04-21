@@ -1,5 +1,5 @@
 import numpy as np
-from Dense import dense
+from Layers import Dense
 from Network import network
 from Activations import activation_layer, tanh, tanh_prime, ReLU, ReLU_prime
 from Loss import mse, mse_prime
@@ -12,9 +12,9 @@ x_train = np.array([[[0, 0]], [[0, 1]], [[1, 0]], [[1, 1]]])
 y_train = np.array([[[0]], [[1]], [[1]], [[0]]])
 
 net = network()
-net.add(dense(2, 3, False))
+net.add(Dense(2, 3, False))
 net.add(activation_layer(tanh, tanh_prime))
-net.add(dense(3, 1, False))
+net.add(Dense(3, 1, False))
 net.add(activation_layer(tanh, tanh_prime))
 
 

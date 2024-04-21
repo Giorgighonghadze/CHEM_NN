@@ -1,4 +1,4 @@
-from Dense import dense
+from Layers import Dense
 from Network import network
 from Activations import activation_layer, tanh, tanh_prime, ReLU_prime, ReLU
 from Loss import mse, mse_prime
@@ -27,9 +27,9 @@ x_test /= 255
 y_test = np_utils.to_categorical(y_test1)
 
 net = network()
-net.add(dense(28 * 28, 10, False))
+net.add(Dense(28 * 28, 10, False))
 net.add(activation_layer(tanh, tanh_prime))
-net.add(dense(10, 10, False))
+net.add(Dense(10, 10, False))
 net.add(activation_layer(tanh, tanh_prime))
 
 

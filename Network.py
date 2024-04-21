@@ -48,4 +48,4 @@ class network():
                     error = layer.backward(error, learning_rate)
 
             err /= len(x_train)
-            print("epoch %d/%d   error = %f" % (i + 1, err, epochs))
+            print('epoch %d/%d   error = %f' % (i + 1, epochs, err))

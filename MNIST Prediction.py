@@ -1,5 +1,5 @@
 import numpy as np
-from Dense import dense
+from Layers import Dense
 from Network import network
 from Activations import activation_layer, tanh, tanh_prime
 from keras.datasets import mnist
@@ -29,9 +29,9 @@ with open("data.MNISTbiases2", "rb") as file:
     biases2 = pickle.load(file)
 
 net = network()
-net.add(dense(28*28, 10,True, weights1, biases1))
+net.add(Dense(28*28, 10,True, weights1, biases1))
 net.add(activation_layer(tanh, tanh_prime))
-net.add(dense(10, 10,True, weights2, biases2))
+net.add(Dense(10, 10,True, weights2, biases2))
 net.add(activation_layer(tanh, tanh_prime))
 
 out = net.predict(x_test[0:10])
