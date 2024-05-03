@@ -1,7 +1,7 @@
-from Layers import Dense
-from Network import network
-from Activations import activation_layer, tanh, tanh_prime, softmax
-from Loss import mse, mse_prime
+from Base_Modules.Layers import Dense
+from Base_Modules.Network import network
+from Base_Modules.Activations import activation_layer, tanh, tanh_prime
+from Base_Modules.Loss import mse, mse_prime
 from keras.datasets import mnist
 import keras.utils as np_utils
 import pickle
@@ -31,7 +31,7 @@ net.add(activation_layer(tanh, tanh_prime))
 
 
 net.use(mse, mse_prime)
-net.train(x_train[0:1000], y_train[0:1000], epochs=100, learning_rate=0.1)
+net.train(x_train[0:1000], y_train[0:1000], epochs=500, learning_rate=0.1)
 
 with open("data.weights1", "wb") as file:
     pickle.dump(net.layers[0].weights, file)

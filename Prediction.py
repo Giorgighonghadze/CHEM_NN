@@ -1,6 +1,6 @@
-from Layers import Dense
-from Network import network
-from Activations import activation_layer, tanh, tanh_prime
+from Base_Modules.Layers import Dense
+from Base_Modules.Network import network
+from Base_Modules.Activations import activation_layer, tanh, tanh_prime
 from keras.datasets import mnist
 import keras.utils as np_utils
 from matplotlib import pyplot as plt

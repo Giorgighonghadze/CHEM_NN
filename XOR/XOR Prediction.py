@@ -1,7 +1,7 @@
 import numpy as np
-from Layers import Dense
-from Network import network
-from Activations import activation_layer, tanh, tanh_prime
+from Base_Modules.Layers import Dense
+from Base_Modules.Network import network
+from Base_Modules.Activations import activation_layer, tanh, tanh_prime
 import pickle
 
 
@@ -11,14 +11,13 @@ x_train = np.array([[[0, 0]], [[0, 1]], [[1, 0]], [[1, 1]]])
 y_train = np.array([[[0]], [[1]], [[1]], [[0]]])
 
 
-
-with open("data.XORweights1", "rb") as file:
+with open("../data.XORweights1", "rb") as file:
     weights1 = pickle.load(file)
-with open("data.XORweights2", "rb") as file:
+with open("../data.XORweights2", "rb") as file:
     weights2 = pickle.load(file)
-with open("data.XORbiases1", "rb") as file:
+with open("../data.XORbiases1", "rb") as file:
     biases1 = pickle.load(file)
-with open("data.XORbiases2", "rb") as file:
+with open("../data.XORbiases2", "rb") as file:
     biases2 = pickle.load(file)
 
 net = network()

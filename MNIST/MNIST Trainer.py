@@ -1,7 +1,7 @@
-from Layers import Dense
-from Network import network
-from Activations import activation_layer, tanh, tanh_prime, ReLU_prime, ReLU
-from Loss import mse, mse_prime
+from Base_Modules.Layers import Dense
+from Base_Modules.Network import network
+from Base_Modules.Activations import activation_layer, tanh, tanh_prime
+from Base_Modules.Loss import mse, mse_prime
 from keras.datasets import mnist
 import keras.utils as np_utils
 import pickle
@@ -34,15 +34,15 @@ net.add(activation_layer(tanh, tanh_prime))
 
 
 net.use(mse, mse_prime)
-net.train(x_train[0:5000], y_train[0:5000], epochs=1000, learning_rate=0.1)
+net.train(x_train[0:5000], y_train[0:5000], epochs=100, learning_rate=0.1)
 
-with open("data.MNISTweights1", "wb") as file:
+with open("../data.MNISTweights1", "wb") as file:
     pickle.dump(net.layers[0].weights, file)
-with open("data.MNISTweights2", "wb") as file:
+with open("../data.MNISTweights2", "wb") as file:
     pickle.dump(net.layers[2].weights, file)
-with open("data.MNISTbiases1", "wb") as file:
+with open("../data.MNISTbiases1", "wb") as file:
     pickle.dump(net.layers[0].biases, file)
-with open("data.MNISTbiases2", "wb") as file:
+with open("../data.MNISTbiases2", "wb") as file:
     pickle.dump(net.layers[2].biases, file)
 
 

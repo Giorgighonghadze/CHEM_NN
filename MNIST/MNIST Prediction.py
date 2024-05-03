@@ -1,12 +1,10 @@
-import numpy as np
-from Layers import Dense
-from Network import network
-from Activations import activation_layer, tanh, tanh_prime
+from Base_Modules.Layers import Dense
+from Base_Modules.Network import network
+from Base_Modules.Activations import activation_layer, tanh, tanh_prime
 from keras.datasets import mnist
 import keras.utils as np_utils
 from matplotlib import pyplot as plt
 import pickle
-
 
 
 #MNIST Prediction
@@ -19,13 +17,13 @@ x_test /= 255
 y_test = np_utils.to_categorical(y_test1)
 
 
-with open("data.MNISTweights1", "rb") as file:
+with open("../data.MNISTweights1", "rb") as file:
     weights1 = pickle.load(file)
-with open("data.MNISTweights2", "rb") as file:
+with open("../data.MNISTweights2", "rb") as file:
     weights2 = pickle.load(file)
-with open("data.MNISTbiases1", "rb") as file:
+with open("../data.MNISTbiases1", "rb") as file:
     biases1 = pickle.load(file)
-with open("data.MNISTbiases2", "rb") as file:
+with open("../data.MNISTbiases2", "rb") as file:
     biases2 = pickle.load(file)
 
 net = network()
